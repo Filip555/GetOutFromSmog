@@ -1,0 +1,13 @@
+﻿@model List<GetOutFromSmog_.Models.ParseJsonToList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var itm in Model)
+{
+    <b>@itm.StationLocation</b>
+    <br />
+}

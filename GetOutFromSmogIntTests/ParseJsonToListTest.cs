@@ -22,9 +22,9 @@ namespace GetOutFromSmogIntTests
         {
             ParseJsonToList _parse = new ParseJsonToList();
 
-            var result = _parse.ParseStringToArray(json);
+            var result = _parse.ParseStringToArray();
 
-            Assert.Equal(8, result.Where(x => x.stationLocation.Contains("Kraków")).Count());
+            Assert.Equal(8, result.Where(x => x.StationLocation.Contains("Kraków")).Count());
 
         }
     }

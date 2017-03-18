@@ -10,13 +10,16 @@ namespace GetOutFromSmog_.Models
 {
     public class ParseJsonToList
     {
-        public string stationLocation { get; private set; }
-        public List<Dictionary<string, string>> listMeasurements { get; private set; }
+        private readonly GetInfoAboutLongitude _parse = new GetInfoAboutLongitude();
+        public string StationLocation { get; private set; }
+        public List<Dictionary<string, string>> ListMeasurements { get; private set; }
+        public LatitudesLongitudes LatAndLong { get; set; }
 
-        public List<ParseJsonToList> ParseStringToArray(string json)
+        public List<ParseJsonToList> ParseStringToArray()
         {
-
-
+            var webClient = new System.Net.WebClient();
+            webClient.Encoding = System.Text.Encoding.UTF8;
+            var json = webClient.DownloadString(@"http://powietrze.gios.gov.pl/pjp/current/getAQIDetailsList?param=AQI");
             #region solution based on dynamic
             //dynamic api = JArray.Parse(json);
             //dynamic check = JsonConvert.DeserializeObject(json);
@@ -35,8 +38,8 @@ namespace GetOutFromSmog_.Models
             //    }
             //    model.Add(new ParseJsonToList()
             //    {
-            //        stationLocation = value2.stationName,
-            //        listMeasurements = valuesList
+            //        StationLocation = value2.stationName,
+            //        ListMeasurements = valuesList
             //    });
             //}
             #endregion
@@ -54,8 +57,8 @@ namespace GetOutFromSmog_.Models
                 }
                 model.Add(new ParseJsonToList()
                 {
-                    stationLocation = root["stationName"].ToString(),
-                    listMeasurements = valuesList
+                    StationLocation = root["stationName"].ToString(),
+                    ListMeasurements = valuesList,
                 });
             }
             return model;
