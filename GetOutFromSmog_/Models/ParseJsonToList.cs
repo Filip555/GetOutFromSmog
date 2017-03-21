@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GetOutFromSmog_.Interfaces;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,13 @@ using System.Web;
 
 namespace GetOutFromSmog_.Models
 {
-    public class ParseJsonToList
+    public class ParseJsonToList : IParseJsonToListAboutMeasureStation
     {
         private readonly GetInfoAboutLongitude _parse = new GetInfoAboutLongitude();
         public string StationLocation { get; private set; }
         public List<Dictionary<string, string>> ListMeasurements { get; private set; }
         public LatitudesLongitudes LatAndLong { get; set; }
+        public double DistanceBetweenUserAndStation { get; set; }
 
         public List<ParseJsonToList> ParseStringToArray()
         {

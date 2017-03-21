@@ -15,9 +15,14 @@ namespace GetOutFromSmog_.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var model = _parse.ParseStringToArray();
-            model = _longitude.GetLongitudeAfterAdress(model);
-            return View(model);
+            //var model = _parse.ParseStringToArray();
+            //model = _longitude.GetLongitudeAfterAdress(model);
+            //return View(model);
+            return View();
+        }
+        public ActionResult Coordinate(string lang,string len)
+        {
+            return View();
         }
     }
 }

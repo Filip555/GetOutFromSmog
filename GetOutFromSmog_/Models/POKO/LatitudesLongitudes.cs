@@ -7,7 +7,7 @@ namespace GetOutFromSmog_.Models
 {
     public class LatitudesLongitudes
     {
-        public string Latitudes { get; set; }
-        public string Longitudes { get; set; }
+        public double Latitudes { get; set; }
+        public double Longitudes { get; set; }
     }
 }

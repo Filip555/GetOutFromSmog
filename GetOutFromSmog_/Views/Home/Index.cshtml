@@ -1,13 +1,37 @@
-﻿@model List<GetOutFromSmog_.Models.ParseJsonToList>
-
+﻿@*@model List<GetOutFromSmog_.Models.ParseJsonToList>*@
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<p id="demo"></p>
+<script type="text/javascript">
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                alert(position.coords.latitude);
+                alert(position.coords.longitude);
+                $.ajax({
+                    url: '@Url.Action("Coordinate", "Home")',
+                    data: { 'lang': position.coords.latitude, 'len': position.coords.longitude },
+                    type: "post",
+                    cache: false,
+                    success: function () {
+                        alert('ok');
+                    },
+                    error: function (thrownError) {
+                        alert('something was wrong');
+                    }
+                });
+            });
+        }
+    };
+</script>
 @{
     ViewBag.Title = "Index";
 }
+<button onclick="getLocation()">Try It</button>
 
 <h2>Index</h2>
 
-@foreach (var itm in Model)
+@*@foreach (var itm in Model)
 {
     <b>@itm.StationLocation</b>
     <br />
-}
+}*@

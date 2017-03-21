@@ -94,3 +94,4 @@ C:\Users\filipek\Desktop\GetOutFromSmog\GetOutFromSmog\GetOutFromSmog_\bin\Syste
 C:\Users\filipek\Desktop\GetOutFromSmog\GetOutFromSmog\GetOutFromSmog_\obj\Debug\GetOutFromSmog_.csprojResolveAssemblyReference.cache
 C:\Users\filipek\Desktop\GetOutFromSmog\GetOutFromSmog\GetOutFromSmog_\obj\Debug\GetOutFromSmog_.dll
 C:\Users\filipek\Desktop\GetOutFromSmog\GetOutFromSmog\GetOutFromSmog_\obj\Debug\GetOutFromSmog_.pdb
+C:\Users\Filip555\Documents\Visual Studio 2015\Projects\GetOutFromSmog_\GetOutFromSmog_\bin\System.Runtime.InteropServices.RuntimeInformation.dll

@@ -1,28 +1,29 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using GetOutFromSmog_.Interfaces;
 
 namespace GetOutFromSmog_.Models
 {
-public class GetInfoAboutLongitude
-{
-    public List<ParseJsonToList> GetLongitudeAfterAdress(List<ParseJsonToList> adress)
+    public class GetInfoAboutLongitude : IGetInfoAboutCoordiateStation
     {
-        var webClient = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 };
-        foreach (var item in adress)
+        public List<ParseJsonToList> GetLongitudeAfterAdress(List<ParseJsonToList> adress)
         {
-            var json = webClient.DownloadString(@"https://maps.googleapis.com/maps/api/geocode/json?address=" + item.StationLocation);
-            var arrayJson = JObject.Parse(json);
-            foreach (JToken latidute in arrayJson.FindTokens("location"))
+            var webClient = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 };
+            foreach (var item in adress)
             {
-                item.LatAndLong = new LatitudesLongitudes
+                var json = webClient.DownloadString(@"https://maps.googleapis.com/maps/api/geocode/json?address=" + item.StationLocation);
+                var arrayJson = JObject.Parse(json);
+                foreach (JToken latidute in arrayJson.FindTokens("location"))
                 {
-                    Latitudes = latidute.FindTokens("lat").FirstOrDefault()?.ToString(),
-                    Longitudes = latidute.FindTokens("lng").FirstOrDefault()?.ToString(),
-                };
+                    item.LatAndLong = new LatitudesLongitudes
+                    {
+                        Latitudes = double.Parse(latidute.FindTokens("lat").FirstOrDefault()?.ToString()),
+                        Longitudes = double.Parse(latidute.FindTokens("lng").FirstOrDefault()?.ToString()),
+                    };
+                }
             }
+            return adress;
         }
-        return adress;
     }
-}
 }
