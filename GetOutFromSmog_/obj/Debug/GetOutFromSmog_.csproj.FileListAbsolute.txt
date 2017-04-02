@@ -95,3 +95,7 @@ C:\Users\filipek\Desktop\GetOutFromSmog\GetOutFromSmog\GetOutFromSmog_\obj\Debug
 C:\Users\filipek\Desktop\GetOutFromSmog\GetOutFromSmog\GetOutFromSmog_\obj\Debug\GetOutFromSmog_.dll
 C:\Users\filipek\Desktop\GetOutFromSmog\GetOutFromSmog\GetOutFromSmog_\obj\Debug\GetOutFromSmog_.pdb
 C:\Users\Filip555\Documents\Visual Studio 2015\Projects\GetOutFromSmog_\GetOutFromSmog_\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Filip555\Documents\Visual Studio 2015\Projects\GetOutFromSmog_\GetOutFromSmog_\bin\Autofac.dll
+C:\Users\Filip555\Documents\Visual Studio 2015\Projects\GetOutFromSmog_\GetOutFromSmog_\bin\Autofac.xml
+C:\Users\Filip555\Documents\Visual Studio 2015\Projects\GetOutFromSmog_\GetOutFromSmog_\bin\Autofac.Integration.Mvc.dll
+C:\Users\Filip555\Documents\Visual Studio 2015\Projects\GetOutFromSmog_\GetOutFromSmog_\bin\Autofac.Integration.Mvc.xml

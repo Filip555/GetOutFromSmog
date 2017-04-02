@@ -16,6 +16,10 @@ namespace GetOutFromSmog_.Models
                 var arrayJson = JObject.Parse(json);
                 foreach (JToken latidute in arrayJson.FindTokens("location"))
                 {
+                    if (latidute.FindTokens("lat").FirstOrDefault()?.ToString() == null)
+                    {
+
+                    }
                     item.LatAndLong = new LatitudesLongitudes
                     {
                         Latitudes = double.Parse(latidute.FindTokens("lat").FirstOrDefault()?.ToString()),

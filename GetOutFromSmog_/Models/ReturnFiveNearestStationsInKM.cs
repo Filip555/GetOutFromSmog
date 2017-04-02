@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GetOutFromSmog_.Models
 {
-public class ReturnFiveNearestStationsInKm : IReturnNearestStation
+public class ReturnNearestStationsIn100Km : IReturnNearestStation
 {
     public List<ParseJsonToList> ReturnNearestStation(List<ParseJsonToList> model, double userLatitudes, double userLongitudes)
     {
@@ -24,6 +24,7 @@ public class ReturnFiveNearestStationsInKm : IReturnNearestStation
             };
         var filtredModel = model.Where(x =>
         {
+            if (x?.LatAndLong?.Latitudes == null || x?.LatAndLong?.Longitudes == null) return false;
             var distanceInKmFromUserToStation = calculateDistanceToKm(x.LatAndLong.Latitudes, x.LatAndLong.Longitudes, userLatitudes, userLongitudes);
             x.DistanceBetweenUserAndStation = distanceInKmFromUserToStation;
             return (distanceInKmFromUserToStation < 100);

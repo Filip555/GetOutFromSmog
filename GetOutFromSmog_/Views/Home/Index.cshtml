@@ -9,7 +9,7 @@
                 alert(position.coords.longitude);
                 $.ajax({
                     url: '@Url.Action("Coordinate", "Home")',
-                    data: { 'lang': position.coords.latitude, 'len': position.coords.longitude },
+                    data: { 'lat': position.coords.latitude, 'lon': position.coords.longitude },
                     type: "post",
                     cache: false,
                     success: function () {

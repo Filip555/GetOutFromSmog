@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GetOutFromSmog_.Interfaces
 {
-    interface IGetInfoAboutCoordiateStation
+    public interface IGetInfoAboutCoordiateStation
     {
         List<ParseJsonToList> GetLongitudeAfterAdress(List<ParseJsonToList> adress);
     }

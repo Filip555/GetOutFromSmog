@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Autofac;
+using GetOutFromSmog_.App_Start;
+using GetOutFromSmog_.Interfaces;
+using GetOutFromSmog_.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +15,7 @@ namespace GetOutFromSmog_
     {
         protected void Application_Start()
         {
+            AutofacConfig.ConfigureAutofac();
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

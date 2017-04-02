@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GetOutFromSmog_.Interfaces
 {
-    interface IParseJsonToListAboutMeasureStation
+    public interface IParseJsonToListAboutMeasureStation
     {
         List<ParseJsonToList> ParseStringToArray();
     }
