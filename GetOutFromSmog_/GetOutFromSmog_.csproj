@@ -159,9 +159,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICleanestAir.cs" />
     <Compile Include="Interfaces\IGetInfoAboutCoordiateStation.cs" />
     <Compile Include="Interfaces\IParseJsonToListAboutMeasureStation.cs" />
     <Compile Include="Interfaces\IReturnFiveClosetStation.cs" />
+    <Compile Include="Models\CleanestAir.cs" />
     <Compile Include="Models\ReturnFiveNearestStationsInKm.cs" />
     <Compile Include="Models\GetInfoAboutLongitude.cs" />
     <Compile Include="Models\JsonExtensions.cs" />

@@ -7,18 +7,18 @@ namespace GetOutFromSmog_.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly GetInfoAboutLongitude _longitude = new GetInfoAboutLongitude();
-        private readonly ParseJsonToList _parse = new ParseJsonToList();
         private readonly IParseJsonToListAboutMeasureStation _parseJsonToListAboutMeasureStation;
         private readonly IGetInfoAboutCoordiateStation _getInfoAboutCoordiateStation;
         private readonly IReturnNearestStation _returnNearestStation;
+        private readonly ICleanestAir _cleanestAir;
 
         public HomeController(IParseJsonToListAboutMeasureStation parseJsonToListAboutMeasureStation, IGetInfoAboutCoordiateStation getInfoAboutCoordiateStation,
-            IReturnNearestStation returnNearestStation)
+            IReturnNearestStation returnNearestStation, ICleanestAir cleanestAir)
         {
             _parseJsonToListAboutMeasureStation = parseJsonToListAboutMeasureStation;
             _getInfoAboutCoordiateStation = getInfoAboutCoordiateStation;
             _returnNearestStation = returnNearestStation;
+            _cleanestAir = cleanestAir;
         }
         // GET: Home
         public ActionResult Index()
@@ -33,6 +33,7 @@ namespace GetOutFromSmog_.Controllers
             var model = _parseJsonToListAboutMeasureStation.ParseStringToArray();
             model = _getInfoAboutCoordiateStation.GetLongitudeAfterAdress(model);
             model = _returnNearestStation.ReturnNearestStation(model, latitudes, longitudes);
+            var leastPollutedPlace = _cleanestAir.CalculateCleanestAir(model);
             return View();
         }
     }

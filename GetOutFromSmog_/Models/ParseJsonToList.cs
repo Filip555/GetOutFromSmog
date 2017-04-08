@@ -53,15 +53,21 @@ namespace GetOutFromSmog_.Models
                 var values​​Measurements = JObject.Parse(root["values"].ToString());
                 foreach (var item2 in values​​Measurements)
                 {
-                    Dictionary<string, string> dictionary = new Dictionary<string, string>();
-                    dictionary.Add(item2.Key, item2.Value.ToString());
-                    valuesList.Add(dictionary);
+                    if (item2.Key == "PM10")
+                    {
+                        Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                        dictionary.Add(item2.Key, item2.Value.ToString());
+                        valuesList.Add(dictionary);
+                    }
                 }
-                model.Add(new ParseJsonToList()
+                if (valuesList != null)
                 {
-                    StationLocation = root["stationName"].ToString(),
-                    ListMeasurements = valuesList,
-                });
+                    model.Add(new ParseJsonToList()
+                    {
+                        StationLocation = root["stationName"].ToString(),
+                        ListMeasurements = valuesList,
+                    });
+                }
             }
             return model;
         }

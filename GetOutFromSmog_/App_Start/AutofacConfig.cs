@@ -19,7 +19,8 @@ public class AutofacConfig
         builder.RegisterType<GetInfoAboutLongitude>().As<IGetInfoAboutCoordiateStation>();
         builder.RegisterType<ParseJsonToList>().As<IParseJsonToListAboutMeasureStation>();
         builder.RegisterType<ReturnNearestStationsIn100Km>().As<IReturnNearestStation>();
-        var container = builder.Build();
+        builder.RegisterType<CleanestAir>().As<ICleanestAir>();
+        var container = builder.Build(); 
         DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
     }
 }
