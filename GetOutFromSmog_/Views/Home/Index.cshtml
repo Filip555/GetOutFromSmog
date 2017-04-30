@@ -5,18 +5,19 @@
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                alert(position.coords.latitude);
-                alert(position.coords.longitude);
+                var _range= parseFloat($(".range").val());
+                alert(_range);
+                alert('Latitude' + position.coords.latitude);
+                alert('Longitude' + position.coords.longitude);
                 $.ajax({
                     url: '@Url.Action("Coordinate", "Home")',
-                    data: { 'lat': position.coords.latitude, 'lon': position.coords.longitude },
+                    data: { 'lat': position.coords.latitude, 'lon': position.coords.longitude,'range' :  _range},
                     type: "post",
                     cache: false,
                     success: function () {
-                        alert('ok');
                     },
                     error: function (thrownError) {
-                        alert('something was wrong');
+                        alert('Something was wrong');
                     }
                 });
             });
@@ -26,6 +27,7 @@
 @{
     ViewBag.Title = "Index";
 }
+<input type="number" class="range"/>
 <button onclick="getLocation()">Try It</button>
 
 <h2>Index</h2>

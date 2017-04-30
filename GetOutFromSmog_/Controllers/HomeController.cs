@@ -26,13 +26,13 @@ namespace GetOutFromSmog_.Controllers
 
             return View();
         }
-        public ActionResult Coordinate(string lat, string lon)
+        public ActionResult Coordinate(string lat, string lon,float range)
         {
             var latitudes = double.Parse(lat, CultureInfo.InvariantCulture);
             var longitudes = double.Parse(lon, CultureInfo.InvariantCulture);
             var model = _parseJsonToListAboutMeasureStation.ParseStringToArray();
             model = _getInfoAboutCoordiateStation.GetLongitudeAfterAdress(model);
-            model = _returnNearestStation.ReturnNearestStation(model, latitudes, longitudes);
+            model = _returnNearestStation.ReturnNearestStation(model, latitudes, longitudes,range);
             var leastPollutedPlace = _cleanestAir.CalculateCleanestAir(model);
             return View();
         }
