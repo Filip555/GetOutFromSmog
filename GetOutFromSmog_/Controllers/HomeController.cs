@@ -34,7 +34,7 @@ namespace GetOutFromSmog_.Controllers
             model = _getInfoAboutCoordiateStation.GetLongitudeAfterAdress(model);
             model = _returnNearestStation.ReturnNearestStation(model, latitudes, longitudes,range);
             var leastPollutedPlace = _cleanestAir.CalculateCleanestAir(model);
-            return View();
+            return Json(new {lat = leastPollutedPlace.LatAndLong.Latitudes, lon = leastPollutedPlace.LatAndLong.Longitudes });
         }
     }
 }
