@@ -12,10 +12,11 @@
                     type: "post",
                     cache: false,
                     success: function (response) {
-                        var lat = response.lat;
-                        var long = response.lon;
-                 //       $( "div:last" ).html( str );
-                        //function initMap() { var uluru = { lat: -25.363, lng: 131.044 }; var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: uluru }); var marker = new google.maps.Marker({ position: uluru, map: map }); }
+                 //       var lat = response.lat;
+                        //      var long = response.lon;
+                        alert(response.station);
+                        $( "#position" ).text(response.station);
+                      //  function UpdateMap() { var uluru = { lat: -20.363, lng: 131.044 }; var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: uluru }); var marker = new google.maps.Marker({ position: uluru, map: map }); }
                     },
                     error: function (thrownError) {
                         alert('Something was wrong');
@@ -26,28 +27,27 @@
         }
     };
 </script>
-<style>
+@*<style>
     #map { height: 400px; width: 100%; }
-</style>
-<script type="text/javascript">
-    function initMap2() { var uluru = { lat: -25.363, lng: 131.044 }; var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: uluru }); var marker = new google.maps.Marker({ position: uluru, map: map });
-</script>
-<link href="~/Content/Site.css" rel="stylesheet" />
+</style>*@
+@*<script type="text/javascript">
+    function initMap() { var uluru = { lat: -25.363, lng: 131.044 }; var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: uluru }); var marker = new google.maps.Marker({ position: uluru, map: map }) };
+</script>*@
+@*<link href="~/Content/Site.css" rel="stylesheet" />
 
-<h3>My Google Maps Demo</h3> <div id="map"></div>
+<h3>My Google Maps Demo</h3> <div id="map"></div>*@
 <!-- Replace the value of the key parameter with your own API key. -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv_kSlTEwyT-p9FurjHvmftzFd6JLw_yE&callback=initMap"> </script>
+@*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv_kSlTEwyT-p9FurjHvmftzFd6JLw_yE&callback=initMap"> </script>*@
 
 
 <input type="number" class="form-control range"/>
-<button onclick="getLocation()">Find the best place</button>
+<button class="btn btn-success" onclick="getLocation()">Find the best place</button>
 @*<div style="width: 100%; height: 100%">
     <div id="map_canvas" style="width:100%; height:100%; margin-left:   100px"></div>
 </div>
 <div id="map"></div>*@
-
-<div id="position">
-
+<div style="font:200%; text-align:center">
+    The cleanest air is on
+    <div id="position">
+    </div>
 </div>
-
-<h2>Index</h2>
